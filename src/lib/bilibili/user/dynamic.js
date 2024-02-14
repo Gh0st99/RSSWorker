@@ -75,7 +75,7 @@ let getItemFromDynamicForward = (card) => {
 };
 
 let cleanTitle = (title) => {
-	return decodeURIComponent(encodeURIComponent(title));
+	return title.replaceAll('\v', '');
 }
 
 let getItemFromDynamicAv = (card) => {
