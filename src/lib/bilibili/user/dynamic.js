@@ -74,12 +74,19 @@ let getItemFromDynamicForward = (card) => {
 	};
 };
 
+let cleanTitle = (title) => {
+	return decodeURIComponent(encodeURIComponent(title));
+}
+
 let getItemFromDynamicAv = (card) => {
 	// title
 	let title = '';
 	for (let desc of card.extend.origDesc) {
 		title += desc.text;
 	}
+
+	title = cleanTitle(title);
+
 	// link
 	let link = `https://t.bilibili.com/${card.extend.dynIdStr}`;
 	// description
@@ -117,6 +124,9 @@ let getItemFromDynamicDraw = (card) => {
 	for (let desc of card.extend.origDesc) {
 		title += desc.text;
 	}
+
+	title = cleanTitle(title);
+
 	// link
 	let link = `https://t.bilibili.com/${card.extend.dynIdStr}`;
 	// description
@@ -172,6 +182,9 @@ let getItemFromDynamicDefault = (card) => {
 			title += desc.text;
 		}
 	}
+
+	title = cleanTitle(title);
+
 	return {
 		title: title,
 		link: link,
