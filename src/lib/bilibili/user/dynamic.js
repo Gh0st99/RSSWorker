@@ -272,3 +272,4 @@ let setup = (route) => {
 };
 
 export default { setup };
+export { getItemFromDynamic };
